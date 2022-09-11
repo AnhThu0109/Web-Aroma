@@ -1,10 +1,16 @@
 {
     "development": {
-        "username": "postgres",
-        "password": "postgres",
-        "database": "database3",
-        "host": "localhost",
-        "dialect": "postgres"
+        "username": "kiewimpq",
+        "password": "oODRXxr8hodYpgr3_LwdAQUOrZCu8CS3",
+        "database": "kiewimpq",
+        "host": "tyke.db.elephantsql.com",
+        "dialect": "postgres",
+        "dialectOptions": {
+            "ssl": {
+                "require": true,
+                "rejectUnauthorized": false
+                }
+        }
     },
     "test": {
         "username": "postgres",
@@ -14,9 +20,9 @@
         "dialect": "postgres"
     },
     "production": {
-        "username": "bqdkndiy",
-        "password": "C-QYNJhmbwfOXezAnWzQ_B3797I7gqmv",
-        "database": "bqdkndiy",
+        "username": "kiewimpq",
+        "password": "oODRXxr8hodYpgr3_LwdAQUOrZCu8CS3",
+        "database": "kiewimpq",
         "host": "tyke.db.elephantsql.com",
         "dialect": "postgres",
         "dialectOptions": {
