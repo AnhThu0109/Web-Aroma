@@ -1,21 +1,15 @@
 {
     "development": {
-        "username": "bqdkndiy",
-        "password": "C-QYNJhmbwfOXezAnWzQ_B3797I7gqmv",
-        "database": "bqdkndiy",
-        "host": "tyke.db.elephantsql.com",
-        "dialect": "postgres",
-        "dialectOptions": {
-            "ssl": {
-                "require": true,
-                "rejectUnauthorized": false
-                }
-        }
+        "username": "postgres",
+        "password": "postgres",
+        "database": "database3",
+        "host": "localhost",
+        "dialect": "postgres"
     },
     "test": {
         "username": "postgres",
         "password": "postgres",
-        "database": "aromadatabase",
+        "database": "database3",
         "host": "localhost",
         "dialect": "postgres"
     },

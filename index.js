@@ -72,8 +72,6 @@ app.use("/users", require("./routes/userRouter"));
 app.get('/:page', (req, res) => {
     let banners = {
         blog: "Our Blog",
-        checkout: "Product Checkout",
-        confirmation: "Order Confirmation",
         contact: "Contact Us",
         singleblog: "Blog Details",
         trackingorder: "Order Tracking"

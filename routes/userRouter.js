@@ -107,3 +107,20 @@ router.get("/logout", (req, res, next) => {
 });
 
 module.exports = router;
+// var orderController = require("../controllers/orderController");
+// router.get("/orders", userController.isLoggedIn, (req, res) => {
+//     var user = req.session.user;
+//     orderController.getByUser(user, (orders) => {
+//         res.locals.orders = orders;
+//         res.render("orderhistory");
+//     });
+// });
+
+// router.get("/orders/:id", userController.isLoggedIn, (req, res) => {
+//     var id = req.params.id;
+//     orderController.getById(id, (details) => {
+//         res.locals.details = details;
+//         res.render("orderdetails");
+//     })
+// })
+

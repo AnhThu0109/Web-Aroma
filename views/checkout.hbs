@@ -2,148 +2,110 @@
   <!--================Checkout Area =================-->
   <section class="checkout_area section-margin--small">
     <div class="container">
-        <div class="returning_customer">
-            <div class="check_title">
-                <h2>Returning Customer? <a href="#">Click here to login</a></h2>
-            </div>
-            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new
-                customer, please proceed to the Billing & Shipping section.</p>
-            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                <div class="col-md-6 form-group p_star">
-                    <input type="text" class="form-control" placeholder="Username or Email*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username or Email*'" id="name" name="name">
-                    <!-- <span class="placeholder" data-placeholder="Username or Email"></span> -->
-                </div>
-                <div class="col-md-6 form-group p_star">
-                    <input type="password" class="form-control" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" id="password" name="password">
-                    <!-- <span class="placeholder" data-placeholder="Password"></span> -->
-                </div>
-                <div class="col-md-12 form-group">
-                    <button type="submit" value="submit" class="button button-login">login</button>
-                    <div class="creat_account">
-                        <input type="checkbox" id="f-option" name="selector">
-                        <label for="f-option">Remember me</label>
-                    </div>
-                    <a class="lost_pass" href="#">Lost your password?</a>
-                </div>
-            </form>
-        </div>
-        <div class="cupon_area">
-            <div class="check_title">
-                <h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
-            </div>
-            <input type="text" placeholder="Enter coupon code">
-            <a class="button button-coupon" href="#">Apply Coupon</a>
-        </div>
         <div class="billing_details">
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Billing Details</h3>
-                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                    <h3>Shipping address</h3>
+                    <form class="row contact_form" action="/cart/checkout/shipping" method="POST">
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="first" name="name">
-                            <span class="placeholder" data-placeholder="First name"></span>
+                            <label for="firstName">First name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="last" name="name">
-                            <span class="placeholder" data-placeholder="Last name"></span>
+                            <label for="lastName">Last name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="company" name="company" placeholder="Company name">
-                        </div>
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number">
-                            <span class="placeholder" data-placeholder="Phone number"></span>
-                        </div>
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany">
-                            <span class="placeholder" data-placeholder="Email Address"></span>
+                            <label for="username">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input type="email" name="email" class="form-control" id="username" placeholder="you@example.com" required>
+                                <div class="invalid-feedback" style="width: 100%;">
+                                    Your email is required.
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <select class="country_select">
-                                <option value="1">Country</option>
-                                <option value="2">Country</option>
-                                <option value="4">Country</option>
+                            <label for="phone">Phone number</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                </div>
+                                <input type="text" name="phone" class="form-control" id="phone" required>
+                                <div class="invalid-feedback">
+                                    Please enter your phone number.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="address">Address</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-road"></i></span>
+                                </div>
+                                <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St" required>
+                                <div class="invalid-feedback">
+                                    Please enter your shipping address.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <label for="country">Country</label>
+                            <select class="country_select" name="country" id="country">
+                                <option value="" selected disabled>Choose...</option>
+                                <option value="US">United States</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add1" name="add1">
-                            <span class="placeholder" data-placeholder="Address line 01"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add2" name="add2">
-                            <span class="placeholder" data-placeholder="Address line 02"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="city" name="city">
-                            <span class="placeholder" data-placeholder="Town/City"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <select class="country_select">
-                                <option value="1">District</option>
-                                <option value="2">District</option>
-                                <option value="4">District</option>
+                            <label for="state">State</label>
+                            <select class="country_select" name="state" id="state">
+                                <option value="" selected disabled>Choose...</option>
+                                <option value="US">California</option>
                             </select>
+                            <div class="invalid-feedback">
+                                Please select a valid state.
+                            </div>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Create an account?</label>
+                            <label for="zip">Zip</label>
+                            <input type="text" class="form-control" id="zip" name="zip">
+                            <div class="invalid-feedback">
+                                    Zip code required.
                             </div>
                         </div>
                         <div class="col-md-12 form-group mb-0">
-                            <div class="creat_account">
-                                <h3>Shipping Details</h3>
-                                <input type="checkbox" id="f-option3" name="selector">
-                                <label for="f-option3">Ship to a different address?</label>
-                            </div>
-                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
+                            <hr>
+                            <button class="btn btn-success btn-lg btn-block" type="submit">Confirm to Pay now</button>
                         </div>
                     </form>
                 </div>
                 <div class="col-lg-4">
                     <div class="order_box">
                         <h2>Your Order</h2>
+                        {{#with cart}}
                         <ul class="list">
                             <li><a href="#"><h4>Product <span>Total</span></h4></a></li>
-                            <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+                            {{#each items}}
+                            <li>
+                                <a href="/products/{{item.id}}">{{quantity}} x {{item.name}}<span class="last">${{price}}</span></a>
+                            </li>
+                            {{/each}}
                         </ul>
                         <ul class="list list_2">
-                            <li><a href="#">Subtotal <span>$2160.00</span></a></li>
-                            <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
-                            <li><a href="#">Total <span>$2210.00</span></a></li>
+                            <li><a href="#">Total <span>${{totalPrice}}</span></a></li>
                         </ul>
-                        <div class="payment_item">
-                            <div class="radion_btn">
-                                <input type="radio" id="f-option5" name="selector">
-                                <label for="f-option5">Check payments</label>
-                                <div class="check"></div>
-                            </div>
-                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
-                                Store Postcode.</p>
-                        </div>
-                        <div class="payment_item active">
-                            <div class="radion_btn">
-                                <input type="radio" id="f-option6" name="selector">
-                                <label for="f-option6">Paypal </label>
-                                <img src="img/product/card.jpg" alt="">
-                                <div class="check"></div>
-                            </div>
-                            <p>Pay via PayPal; you can pay with your credit card if you do not have a PayPal
-                                account.</p>
-                        </div>
-                        <div class="creat_account">
-                            <input type="checkbox" id="f-option4" name="selector">
-                            <label for="f-option4">I have read and accept the </label>
-                            <a href="#">terms & conditions*</a>
-                        </div>
-                        <div class="text-center">
-                          <a class="button button-paypal" href="#">Proceed to Paypal</a>
-                        </div>
+                        {{/with}}
                     </div>
                 </div>
             </div>
