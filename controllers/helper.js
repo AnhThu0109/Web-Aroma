@@ -16,7 +16,7 @@ helper.createstarlist = (stars) => {
     return str;
 };
 
-helper.creatStars = (star) => {
+helper.createStars = (star) => {
     let str =``;
     let i;
     for (i=1; i<= star; i++){

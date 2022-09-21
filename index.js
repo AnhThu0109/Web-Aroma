@@ -24,7 +24,7 @@ app.engine("hbs", hbs.engine({
     partialsDir: __dirname + "/views/partials",
     helpers: {
         createStarList: helper.createstarlist,
-        createStars: helper.creatStars,
+        createStars: helper.createStars,
         createPagination: paginateHelper.createPagination
     }
 }));
