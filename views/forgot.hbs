@@ -1,0 +1,42 @@
+{{> banner}}
+  
+  <!--================Login Box Area =================-->
+	<section class="login_box_area section-margin">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<div class="hover">
+							<h4>Already have an account?</h4>
+							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+							<a class="button button-account" href="/users/login">Login Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner register_form_inner">
+						<h3>Forgot Password</h3>
+						<form class="row login_form" action="/users/forgot" id="forgot_form" method="POST">
+							{{#if done}}
+							<div class="col-md-12 alert alert-success text-left">
+                                An email has been sent to <b>{{email}}</b> with further instructions. Please check your email!
+								
+							</div>
+                            {{else}}
+                            <div class="col-md-12 alert text-left {{type}}">
+                                <p>{{{message}}}</p>
+                            </div>
+							<div class="col-md-12 form-group">
+								<input type="email" class="form-control" id="username" name="username" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+                            </div>
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="button button-register w-100">Submit</button>
+							</div>
+                            {{/if}}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->

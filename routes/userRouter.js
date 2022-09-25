@@ -106,6 +106,104 @@ router.get("/logout", (req, res, next) => {
     });
 });
 
+router.get("/forgot", (req, res, next) => {
+    res.render("forgot", {
+        banner: "Forgot Password",
+        message: "Enter your email and we'll sent the instructions."
+    })
+})
+
+router.post("/forgot", (req, res, next) => {
+    let email = req.body.username;
+    //Kiem tra email co ton tai khong
+    
+    userController.getUserByEmail(email)
+        .then(user => {
+            if (user) {
+                //Neu co thi tao link
+                let token = userController.createJWT(email);
+                let host = req.header("host");
+                let url = `${req.protocol}://${host}/users/reset?u=${email}&t=${token}`;
+                //Gui email
+                userController.sendResetPasswordMail(user, host, url)
+                    .then((result) => {
+                        //Neu thanh cong
+                        return res.render("forgot", {
+                            banner: "Forgot Password",
+                            done: 1,
+                            email
+                        })
+                    })
+                    .catch((err) => {
+                        return res.render("forgot", {
+                            banner: "Forgot Password",
+                            message: 'An error occured when trying send to your mail. Please try again!',
+                            type: "alert-danger",
+                            email
+                        })
+                    })   
+            } else {
+            //Nguoc lai neu mail khong ton tai
+            return res.render("forgot", {
+                banner: "Forgot Password",
+                message: 'The email is not registered yet. Please try another email or <a href="/users/register">Sign up</a>',
+                type: "alert-danger",
+                email
+            })}
+        })     
+        .catch(error => next(error)); 
+})
+
+router.get("/reset", (req, res, next) => {
+    let email = req.query.u;
+    let token = req.query.t;
+
+    if(!email || !token) {
+        res.redirect("/user/forgot");
+    }
+    let isVerify = userController.verifyJWT(token);
+    if(isVerify){
+        res.render("reset", {
+            banner: "Reset Password", 
+            email, 
+            message: "Please enter your new password."
+        });
+    } else {
+        res.render("forgot", {
+            banner: "Forgot Password",
+            message: "Your link is Expired. Enter your email and we'll sent the instructions."
+        })
+    }
+});
+
+router.post("/reset", (req, res, next) => {
+    let email = req.body.email;
+    let password = req.body.password;
+    let confirmPassword = req.body.confirmPassword;
+
+    if(password != confirmPassword){
+        res.render("reset", {
+            banner: "Reset Password",
+            email,
+            message: "Confirm password does not match",
+            type: "alert-danger"
+        })
+    }
+    userController.getUserByEmail(email)
+        .then(user => {
+            if(user) {
+                user.password = password;
+                userController.updatePassword(user);
+                res.render("reset", {
+                    banner: "Reset Password",
+                    done: 1
+                }) 
+            } else {
+                res.redirect("/users/forgot");
+            }
+        })
+});
+
 module.exports = router;
 // var orderController = require("../controllers/orderController");
 // router.get("/orders", userController.isLoggedIn, (req, res) => {

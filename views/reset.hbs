@@ -1,0 +1,45 @@
+{{> banner}}
+  
+  <!--================Login Box Area =================-->
+	<section class="login_box_area section-margin">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<div class="hover">
+							<h4>Already have an account?</h4>
+							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+							<a class="button button-account" href="/users/login">Login Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner register_form_inner">
+						<h3>Reset Password</h3>
+						<form class="row login_form" action="/users/reset" id="reset_form" method="POST">
+							{{#if done}}
+							<div class="col-md-12 form-group alert alert-success">
+								<strong>Your password has been updated!</strong>
+							</div>
+                            <div class="col-md-12 form-group alert text-left {{type}}">
+								{{message}}
+							</div>
+							{{else}}
+                            <div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            </div>
+                            <div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+							</div>
+                            <input type="hidden" name="email" id="email" value="{{email}}">
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="button button-register w-100">Submit</button>
+							</div>
+                            {{/if}}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->
