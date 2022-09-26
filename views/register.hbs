@@ -19,20 +19,21 @@
 						<form class="row login_form" action="/users/register" id="register_form" method="POST">
 							{{#if message}}
 							<div class="col-md-12 form-group alert {{type}}">
-								<strong>{{message}}</strong>
+								<strong>{{{message}}}</strong>
 							</div>
 							{{/if}}
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'">
+								<input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="username" name="username" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+								<input type="email" class="form-control" id="username" name="username" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
               </div>
               <div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required onchange="checkPassword()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  								title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
               </div>
               <div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+								<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required onchange="checkPassword()">
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
