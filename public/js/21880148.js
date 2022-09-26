@@ -71,7 +71,7 @@ function clearCart(){
 function checkPassword() {
     const password = document.getElementById("password");
     const confirm = document.getElementById("confirmPassword");
-    if (password != confirm){
+    if (password.value != confirm.value){
         confirm.setCustomValidity("Confirm password does not match.");
     } else {
         confirm.setCustomValidity("");
