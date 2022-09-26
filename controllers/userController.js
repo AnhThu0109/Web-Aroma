@@ -48,8 +48,8 @@ controller.verifyJWT = (token) => {
 controller.sendResetPasswordMail = (user, host, url) => {
     const Mailjet = require("node-mailjet");
     const mailjet = Mailjet.apiConnect(
-        process.env.MJ_APIKEY_PUBLIC || "e39ff5fb23ce3291ea29e97d89173002",
-        process.env.MJ_APIKEY_PRIVATE || "5f541956064bcc9cee1199d145d04219"
+        process.env.MJ_APIKEY_PUBLIC || "a0515fdd32da54eba66da42b4d5fe0a1",
+        process.env.MJ_APIKEY_PRIVATE || "ae505e19f4a1a8dfa1c77f97048c9915"
     );
     const request = mailjet
         .post('send', { version: 'v3.1' })
@@ -57,7 +57,7 @@ controller.sendResetPasswordMail = (user, host, url) => {
           Messages: [
             {
               From: {
-                Email: "thuthuanh19@gmail.com",
+                Email: "thu010997@gmail.com",
                 Name: "Aroma Shop"
               },
               To: [

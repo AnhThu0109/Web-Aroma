@@ -21,10 +21,10 @@
 							<div class="col-md-12 form-group alert alert-success">
 								<strong>Your password has been updated!</strong>
 							</div>
-                            <div class="col-md-12 form-group alert text-left {{type}}">
+							{{else}}
+							<div class="col-md-12 form-group alert text-left {{type}}">
 								{{message}}
 							</div>
-							{{else}}
                             <div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                             </div>
